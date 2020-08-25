@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 此处的 . 就是传入引用的子模板的变量 -->
+    {{template "header" .}}
+</head>
+<body>
+{{template "nav"}}
+<main>
+    <div class="container">
+        <header>
+            <h1 class="text-center text-primary mb-1">注册</h1>
+        </header>
+        <div class="row justify-content-md-center">
+            <div class="col-md-6 mt-5">
+                <form action="/register" method="post" class="form" role="form">
+                    <div class="form-group required">
+                        <label class="form-control-label" for="email">邮箱</label>
+                        <input class="form-control" name="email" required type="text" placeholder="邮箱">
+                    </div>
+                    <div class="form-group required">
+                        <label class="form-control-label" for="nickname">昵称</label>
+                        <input class="form-control" name="nickname" required type="text">
+                    </div>
+                    <div class="form-group required">
+                        <label class="form-control-label" for="password">密码</label>
+                        <input class="form-control" name="password" required type="password">
+                    </div>
+                    <div class="form-group required">
+                        <label class="form-control-label" for="password">确认密码</label>
+                        <input class="form-control" name="passwordAgain" required type="password">
+                    </div>
+                    <input class="btn btn-secondary" name="submit" type="submit" value="注册">
+                </form>
+            </div>
+        </div>
+        <hr class="mt-5">
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <div class="d-flex justify-content-end">
+                    <form action="/login">
+                        <button type="submit" class="btn btn-success">登录</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/*        {{template "footer"}}*/}}
+    </div>
+</main>
+</body>
+</html>
