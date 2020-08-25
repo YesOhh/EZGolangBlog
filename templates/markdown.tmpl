@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 此处的 . 就是传入引用的子模板的变量 -->
+    {{template "header" .}}
+</head>
+<body>
+{{template "nav"}}
+<main>
+
+    <div class="container p-4 bg-white shadow">
+        <div class="page-header">
+            <h3 class="page-header">{{.info}}</h3>
+        </div>
+        <hr class="mt-5">
+        {{.body}}
+    </div>
+</main>
+</body>
+</html>

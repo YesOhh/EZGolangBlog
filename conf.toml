@@ -1,0 +1,17 @@
+title = "个人博客"
+
+# 存放markdown文档的地址，如果是多层
+# linux 中间使用 /
+# windows 中间使用 \\
+# 举例: articles/posts
+# 举例: articles\\posts
+[filePath]
+ArticlePath = "articles"
+
+[category]
+# 配置显示在页面上的分类
+label = ["算法", "python", "golang"]
+# 配置不属于label分类的默认名
+default = "其他"
+# 配置文件名和分类使用的连接符
+separator = "#"

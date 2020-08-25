@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 此处的 . 就是传入引用的子模板的变量 -->
+    {{template "header" .}}
+</head>
+<body>
+{{template "nav"}}
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {{if .content}}
+                    {{ range .content.MdInfos }}
+                        <h2>
+                            <a class="text-secondary" href="/posts?name={{.Title}}&category={{.Category}}">{{.Title}}</a>
+                        </h2>
+                        <h6>
+                            <a class="float-left mt-1">
+                                <span class="oi oi-terminal"> {{.Category}}</span>
+                                <span class="oi oi-calendar ml-3"> {{.ModTime}}</span>
+                            </a>
+                        </h6>
+                    {{else}}
+                        <h2>
+                            <a class="text-secondary">还没有任何文章</a>
+                        </h2>
+                    {{ end }}
+                {{end}}
+            </div>
+            <div class="col-md-4">
+                {{template "sidebar" .}}
+            </div>
+        </div>
+        {{template "footer"}}
+    </div>
+</main>
+</body>
+</html>
