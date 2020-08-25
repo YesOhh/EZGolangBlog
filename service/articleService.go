@@ -2,8 +2,8 @@ package service
 
 import (
 	"goBlog/initialization"
+	"goBlog/mylog"
 	"io/ioutil"
-	"log"
 	"strings"
 )
 
@@ -28,7 +28,7 @@ func (list *MdList) GetArticleList() map[string]int {
 	}
 	dir, err := ioutil.ReadDir(filesPath)
 	if err != nil {
-		log.Panic("读取文件夹内文档失败")
+		mylog.MyLogger.Panic("读取文件夹内文档失败")
 	}
 
 	categoryMap := make(map[string]int)
@@ -59,7 +59,7 @@ func (list *MdList) GetArticleListByCategory(category string) map[string]int {
 	}
 	dir, err := ioutil.ReadDir(filesPath)
 	if err != nil {
-		log.Panic("读取文件夹内文档失败")
+		mylog.MyLogger.Panic("读取文件夹内文档失败")
 	}
 
 	categoryMap := make(map[string]int)
@@ -90,7 +90,7 @@ func (list *MdList) GetArticleListByQuery(q string) map[string]int {
 	}
 	dir, err := ioutil.ReadDir(filesPath)
 	if err != nil {
-		log.Panic("读取文件夹内文档失败")
+		mylog.MyLogger.Panic("读取文件夹内文档失败")
 	}
 
 	categoryMap := make(map[string]int)

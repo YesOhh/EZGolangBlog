@@ -14,4 +14,12 @@ label = ["算法", "python", "golang"]
 # 配置不属于label分类的默认名
 default = "其他"
 # 配置文件名和分类使用的连接符
+# 举例： 文章A#golang.md
 separator = "#"
+
+[setting]
+# 配置运行的ip和端口，默认运行在 127.0.0.1:8080
+ip = ""
+port = ""
+# 存放日志的文件夹
+logDir = "log"

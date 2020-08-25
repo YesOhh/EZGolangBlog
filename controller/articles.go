@@ -4,19 +4,17 @@ import (
 	"github.com/88250/lute"
 	"github.com/gin-gonic/gin"
 	"goBlog/initialization"
+	"goBlog/mylog"
 	"goBlog/service"
 	"goBlog/util"
 	"html/template"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
 	"sort"
 )
 
 func Articles(c *gin.Context)  {
-	log.Println("method:", c.Request.Method, "url:", c.Request.URL.Path)
-
 	filename := c.Query("name")
 	category := c.DefaultQuery("category", initialization.Conf.Category.Default)
 	fTotal := filename + initialization.Conf.Category.Separator + category + ".md"
@@ -31,10 +29,9 @@ func Articles(c *gin.Context)  {
 			"error": "未找到该文章",
 		})
 	}
-	log.Println("path:", fpath)
 	b, err := ioutil.ReadFile(fpath)
 	if err != nil {
-		log.Panicln(err)
+		mylog.MyLogger.Panicln(err)
 	}
 
 	html := lute.New().Markdown("", b)
@@ -46,7 +43,6 @@ func Articles(c *gin.Context)  {
 }
 
 func Total(c *gin.Context) {
-	log.Println("method:", c.Request.Method, "url:", c.Request.URL.Path)
 	list := new(service.MdList)
 	searchCategory := c.Query("category")
 	searchArticle := c.Query("q")

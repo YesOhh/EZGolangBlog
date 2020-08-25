@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"log"
+	"goBlog/mylog"
 	"net/http"
 )
 
@@ -11,7 +11,7 @@ func Recovery() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		defer func() {
 			if err := recover(); err != nil {
-				log.Printf("发生错误： %s\n", err)
+				mylog.MyLogger.Printf("发生错误： %s\n", err)
 				c.HTML(http.StatusInternalServerError, "error.html", gin.H{
 					"title": "发生错误",
 					"error": "服务器内部发生错误",
