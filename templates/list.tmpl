@@ -12,15 +12,18 @@
             <div class="col-md-8">
                 {{if .content}}
                     {{ range .content.MdInfos }}
-                        <h2>
-                            <a class="text-secondary" href="/posts?name={{.Title}}&category={{.Category}}">{{.Title}}</a>
-                        </h2>
-                        <h6>
-                            <a class="float-left mt-1">
-                                <span class="oi oi-terminal"> {{.Category}}</span>
-                                <span class="oi oi-calendar ml-3"> {{.ModTime}}</span>
-                            </a>
-                        </h6>
+                        <div class="mb-4">
+                            <h2>
+                                <a class="text-secondary" href="/posts?name={{.Title}}&category={{.Category}}">{{.Title}}</a>
+                            </h2>
+                            <h6>
+                                <a class="float-left mt-1">
+                                    <span class="oi oi-terminal"> {{.Category}}</span>
+                                    <span class="oi oi-calendar ml-3"> {{.ModTime}}</span>
+                                </a>
+                            </h6>
+                            <br>
+                        </div>
                     {{else}}
                         <h2>
                             <a class="text-secondary">还没有任何文章</a>
